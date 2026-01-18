@@ -22,10 +22,22 @@ if operation =="-"{
 	fmt.Println(subtract(a,n))
 }else if operation =="+"{
 	fmt.Println(add(a,n))
-}else if operation =="*"{
+}else if operation =="x"{ // Shells (like Bash or Zsh) expands * before Go sees it,so i decided to use X for user inputs but the multiplication operation remains the same.
 	fmt.Println(multiply(a,n))
 }else if operation =="/"{
-	fmt.Println(divide(a,n))
+	if n==0{
+		fmt.Println("Math error:cannot divide a number by 0")
+	}else{
+
+		fmt.Println(divide(a,n))
+	}
+}else if operation =="%"{
+	if n==0{
+		fmt.Println("Math error:cannot find the modulus of a number divided by 0")
+	}else{
+
+		fmt.Println(modulus(a,n))
+	}
 }else{
 	fmt.Println("Invalid operation")
 }
@@ -42,4 +54,7 @@ func multiply(a,n int)int{
 }
 func divide(a,n int)int{
 	return a/n
+}
+func modulus(a,n int)int{
+	return a%n
 }
