@@ -1,0 +1,3 @@
+Hello Go
+This is a file
+We are learning file reading

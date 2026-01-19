@@ -1,0 +1,24 @@
+sample.txtpackage main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main() {
+file,error:=os.Create("result.txt")	
+if error !=nil{
+	fmt.Println("Error creating file",error)
+	return 
+}
+defer file.Close()
+// fmt.Println(file.Name(),"successfully created")
+
+_, error:=file.WriteString("overwritten")
+if error != nil{
+	fmt.Println("Failed to write to this file",error)
+	return
+}
+
+fmt.Println("Success!")
+}
